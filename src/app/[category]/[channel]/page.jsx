@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect, useCallback } from 'react'
-import Mostview from '@/components/mostview/mostview'
+import Mostview from '@/components/mostview/Mostview'
 import Pagination from '@/components/pagination/Pagination'
 import styles from './page.module.css'
 import Clock from 'public/clock_icon.png'
@@ -14,12 +14,6 @@ export default function Channel() {
   const [late, setLate] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
   const params = useParams()
-
-  useEffect(() => {
-    if (params.category || params.channel) {
-      fetchData()
-    }
-  }, [fetchData, params.category, params.channel])
 
   const fetchData = useCallback(async () => {
     try {
@@ -40,6 +34,11 @@ export default function Channel() {
       console.error('Error fetching data:', error)
     }
   }, [params.category, params.channel])
+  useEffect(() => {
+    if (params.category || params.channel) {
+      fetchData()
+    }
+  }, [fetchData, params.category, params.channel])
 
   const calculateElapsedTime = (time) => {
     const currentDateTime = new Date()
