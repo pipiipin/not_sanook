@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -27,12 +31,4 @@ a {
 .dark {
   background-color: black;
   color: white;
-}
-
-
-
-.container {
-  max-width: 100Vw;
-  min-height: 100vh;
-  margin: 0 7rem;
 }
