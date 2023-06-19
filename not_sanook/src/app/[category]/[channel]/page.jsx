@@ -86,7 +86,7 @@ export default function Channel() {
             href={{
               pathname: `[channel]/archive`,
             }}
-            as={`[${params.channel}]/archive`}
+            as={`${params.channel}/archive`}
             key={params.Channel}
           >
             <p className={styles.textChannel}>all {params.channel}</p>

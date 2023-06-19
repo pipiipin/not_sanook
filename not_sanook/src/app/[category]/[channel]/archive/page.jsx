@@ -11,34 +11,27 @@ import Link from 'next/link'
 export default function Archive() {
   const params = useParams()
   const [currentPage, setCurrentPage] = useState(1)
-  const [channel, setChannel] = useState([])
   const [selectedFilter, setSelectedFilter] = useState('date')
-  const [selectedFilter1, setSelectedFilter1] = useState('all news')
   const [filteredData, setFilteredData] = useState([])
   const category = params.category
   const channels = params.channel
 
   const fetchData = async (filter1) => {
     try {
-      let url = `http://localhost:3003/contents/?category=${category}&_order=desc`
+      let url = `http://localhost:3003/contents/?category=${category}&channel=${channels}&_order=desc`
 
       if (filter1) url += `&_sort=${filter1}`
 
       const response = await fetch(url)
       const data = await response.json()
-      const response1 = await fetch(
-        `http://localhost:3003/contents/?category=${category}`,
-      )
-      const data1 = await response1.json()
 
-      setChannel(getChannel(data1))
       setFilteredData(data)
     } catch (error) {
       console.error('Error fetching data:', error)
     }
   }
 
-  const title = `All ${channel}`
+  const title = `All ${channels}`
 
   const pageSize = 4
 
@@ -52,7 +45,7 @@ export default function Archive() {
   }
 
   useEffect(() => {
-    fetchData(selectedFilter1, selectedFilter)
+    fetchData(selectedFilter)
   })
 
   const paginate = (items, pageNumber, pageSize) => {
@@ -131,22 +124,4 @@ export default function Archive() {
       </div>
     </div>
   )
-}
-
-function getChannel(data) {
-  const usedChannel = []
-  const modifiedData = []
-
-  data.forEach((item, index) => {
-    const channel = item.channel
-    if (!usedChannel.includes(channel)) {
-      modifiedData.push({
-        id: index,
-        channel: channel,
-      })
-      usedChannel.push(channel)
-      index++
-    }
-  })
-  return modifiedData
 }
