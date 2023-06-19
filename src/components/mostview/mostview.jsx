@@ -7,12 +7,6 @@ import Link from 'next/link'
 export default function Mostview({ category, channel, id }) {
   const [data, setData] = useState([])
 
-  useEffect(() => {
-    if (category || channel || id) {
-      fetchData()
-    }
-  }, [category, channel, fetchData, id])
-
   const fetchData = useCallback(async () => {
     try {
       let url =
@@ -29,6 +23,11 @@ export default function Mostview({ category, channel, id }) {
       console.error('Error fetching data:', error)
     }
   }, [category, channel, id])
+  useEffect(() => {
+    if (category || channel || id) {
+      fetchData()
+    }
+  }, [category, channel, fetchData, id])
 
   return (
     <div className={styles.mostview}>

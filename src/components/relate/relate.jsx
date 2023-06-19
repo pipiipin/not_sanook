@@ -15,11 +15,8 @@ export default function Relate() {
   const params = useParams()
   const { category, channel, id } = params
 
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
-
   let url = `http://localhost:3003/contents/?category=${category}&channel=${channel}&id_ne=${id}`
+
   const fetchData = useCallback(async () => {
     const response = await fetch(url)
     const data = await response.json()
@@ -32,6 +29,10 @@ export default function Relate() {
     const newPosts = await res.json()
     setPosts((post) => [...post, ...newPosts])
   }
+
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
 
   const calculateElapsedTime = (time) => {
     const currentDateTime = new Date()
