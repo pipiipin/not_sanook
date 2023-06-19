@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
-          <div className="container">
+          <div className="max-w-full min-h-full px-36">
             <Navbar />
             <ErrorBoundary fallback={<Error />}>{children}</ErrorBoundary>
           </div>

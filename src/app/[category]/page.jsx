@@ -1,6 +1,6 @@
 'use client'
-import React, { useState, useEffect } from 'react'
-import Mostview from '@/components/mostview/Mostview'
+import React, { useState, useEffect, useCallback } from 'react'
+import Mostview from '@/components/mostview/mostview'
 import Pagination from '@/components/pagination/Pagination'
 import styles from './page.module.css'
 import Clock from 'public/clock_icon.png'
@@ -21,9 +21,9 @@ export default function Category() {
     if (category) {
       fetchData()
     }
-  }, [category])
+  }, [category, fetchData])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const response = await fetch(
         `http://localhost:3003/contents/?category=${category}`,
@@ -42,7 +42,7 @@ export default function Category() {
     } catch (error) {
       console.error('Error fetching data:', error)
     }
-  }
+  }, [category])
 
   const calculateElapsedTime = (time) => {
     const currentDateTime = new Date()

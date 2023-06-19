@@ -10,47 +10,41 @@ import Review from '@/components/review/Review'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <div className="my-10 flex flex-wrap">
       <title>Not Sanook</title>
       <Slider />
       <Mostbar />
       <Scoop />
-      <div className={styles.title}>
-        <div className={styles.category}>ดวง-ความเชื่อ-หวย</div>
-        <Image
-          className={styles.arrow}
-          src={arrow}
-          width={25}
-          height={25}
-          alt="Arrow right icon"
-        />
+      <div className="mt-3 flex items-center">
+        <div className="mr-0.5 text-2xl font-bold">ดวง-ความเชื่อ-หวย</div>
+        <Image src={arrow} width={25} height={25} alt="Arrow right icon" />
       </div>
-      <div className={styles.lottoAndHoro}>
-        <div className={styles.boxlot}>
-          <div className={styles.header}>ตรวจสลากกินแบ่งรัฐบาล</div>
-          <div className={styles.desc}>งวดวันที่ 1 มิถุนายน 2566</div>
-          <div className={styles.first}>รางวัลที่ 1</div>
-          <div className={styles.numFirst}>125272</div>
-          <div className={styles.otherPriceLot}>
-            <div className={styles.columnLot}>
-              <div className={styles.otherPrice}> เลขหน้า 3 ตัว </div>
-              <div className={styles.num1}> 000 </div>
-              <div className={styles.num1}> 681 </div>
+      <div className="flex w-full justify-between p-6">
+        <div className="w-4/12 grid grid-flow-row gap-y-3 border-t-4 border-t-red-500 px-4 py-8 text-center shadow-2xl">
+          <div className="text-2xl font-bold">ตรวจสลากกินแบ่งรัฐบาล</div>
+          <div className="text-base font-bold">งวดวันที่ 1 มิถุนายน 2566</div>
+          <div className="text-sm font-normal">รางวัลที่ 1</div>
+          <div className="text-5xl font-bold">125272</div>
+          <div className="grid grid-flow-col justify-between font-bold">
+            <div>
+              <div className="text-xs"> เลขหน้า 3 ตัว </div>
+              <div className="text-xl"> 000 </div>
+              <div className="text-xl"> 681 </div>
             </div>
-            <div className={styles.columnLot}>
-              <div className={styles.otherPrice}> เลขท้าย 3 ตัว </div>
-              <div className={styles.num1}> 386 </div>
-              <div className={styles.num1}> 971 </div>
+            <div>
+              <div className="text-xs"> เลขท้าย 3 ตัว </div>
+              <div className="text-xl"> 386 </div>
+              <div className="text-xl"> 971 </div>
             </div>
-            <div className={styles.columnLot}>
-              <div className={styles.otherPrice}> เลขท้าย 2 ตัว </div>
-              <div className={styles.num2}> 09 </div>
+            <div>
+              <div className="text-xs"> เลขท้าย 2 ตัว </div>
+              <div className="text-4xl"> 09 </div>
             </div>
           </div>
-          <div className={styles.addition}> งวดนี้คุณตรวจสลากฯ แล้วรึยัง? </div>
-          <div className={styles.checkNum}>
-            <div className={styles.inputDate}>
-              <p className={styles.day}>1 มิถุนายน 2566</p>
+          <div className="text-lg font-bold">งวดนี้คุณตรวจสลากฯแล้วรึยัง?</div>
+          <div className="flex justify-between h-10">
+            <div className="border-2 border-gray-300 w-5/12 h-full flex justify-center items-center">
+              <p className="text-xs mr-0.5">1 มิถุนายน 2566</p>
               <Image
                 src="/down.png"
                 width={20}
@@ -58,13 +52,16 @@ export default function Home() {
                 alt="Arrow down icon"
               />
             </div>
-            <div className={styles.inputNum}>
+            <div className="w-5/12 h-full text-xs flex justify-center items-center">
               <input
-                className={styles.inputBox}
+                className="border-2 border-gray-300 border-r-transparent w-9/12 h-full pl-2"
                 type="text"
                 placeholder="กรอกเลขสลาก"
               />
-              <button className={styles.button} type="submit">
+              <button
+                className="w-3/12 h-full flex justify-center items-center text-white bg-red-500"
+                type="submit"
+              >
                 <Image
                   src="/search.png"
                   width={14}
@@ -75,12 +72,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className={styles.boxhoro}>
-          <div className={styles.topHoro}>
-            <div className={styles.header}> เช็คดวง </div>
-            <div className={styles.desc}> เลือกหมวดทำนายดวงชะตา </div>
+        <div className="w-7/12 h-full border-t-4 border-t-purple-500 px-12 py-8 text-center items-center shadow-2xl">
+          <div className="grid grid-flow-row gap-y-3 mb-7">
+            <div className="text-2xl font-bold"> เช็คดวง </div>
+            <div className="text-base font-bold"> เลือกหมวดทำนายดวงชะตา </div>
           </div>
-          <div className={styles.grid}>
+          <div className="grid grid-rows-3 grid-flow-col justify-between gap-y-7">
             <div className={styles.typeHoro}>
               <Image src="/hr1.png" width={60} height={60} alt="icon" />
               <div className={styles.textHoro}> ดวงรายวัน </div>

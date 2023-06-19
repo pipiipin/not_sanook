@@ -1,6 +1,6 @@
 'use client'
-import React, { useState, useEffect } from 'react'
-import Mostview from '@/components/mostview/Mostview'
+import React, { useState, useEffect, useCallback } from 'react'
+import Mostview from '@/components/mostview/mostview'
 import Pagination from '@/components/pagination/Pagination'
 import styles from './page.module.css'
 import Clock from 'public/clock_icon.png'
@@ -19,9 +19,9 @@ export default function Channel() {
     if (params.category || params.channel) {
       fetchData()
     }
-  }, [params.category, params.channel])
+  }, [fetchData, params.category, params.channel])
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const response = await fetch(
         `http://localhost:3003/contents/?category=${params.category}&channel=${params.channel}`,
@@ -39,7 +39,7 @@ export default function Channel() {
     } catch (error) {
       console.error('Error fetching data:', error)
     }
-  }
+  }, [params.category, params.channel])
 
   const calculateElapsedTime = (time) => {
     const currentDateTime = new Date()
