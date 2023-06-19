@@ -84,9 +84,9 @@ export default function Channel() {
           <h3 className={styles.textCategory}>{params.channel}</h3>
           <Link
             href={{
-              pathname: `/archive/[channel]`,
+              pathname: `[channel]/archive`,
             }}
-            as={`/archive/[${params.Channel}]`}
+            as={`[${params.channel}]/archive`}
             key={params.Channel}
           >
             <p className={styles.textChannel}>all {params.channel}</p>
