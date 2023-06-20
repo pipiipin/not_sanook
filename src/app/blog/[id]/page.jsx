@@ -11,26 +11,29 @@ import Mostview from '@/components/mostview/Mostview'
 import Relate from '@/components/relate/Relate'
 import { useParams } from 'next/navigation'
 
+const API_URL = process.env.API_URL
+
 export default function Detail() {
   const [data, setData] = useState([])
   const params = useParams()
+  const id = params.id
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3003/contents/${params.id}`,
-      )
+      let url = API_URL
+      if (id) url += `${id}`
+      const response = await fetch(url)
       const data = await response.json()
       setData(data)
     } catch (error) {
       console.error('Error fetching data:', error)
     }
-  }, [params.id])
+  }, [id])
   useEffect(() => {
-    if (params.id) {
+    if (id) {
       fetchData()
     }
-  }, [fetchData, params.id])
+  }, [fetchData, id])
 
   const title = data?.title
 
