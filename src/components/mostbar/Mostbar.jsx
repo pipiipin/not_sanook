@@ -13,7 +13,7 @@ export default function Mostbar() {
 
   const fetchData = async () => {
     try {
-      let url = `${process.env.NEXT_PUBLIC_API_URL}?_sort=views&_order=desc&_limit=5`
+      let url = `${process.env.API_URL}?_sort=views&_order=desc&_limit=5`
       const response = await fetch(
         url,
         // 'https://fake-api-fawn.vercel.app/contents?_sort=views&_order=desc&_limit=5',
@@ -29,7 +29,7 @@ export default function Mostbar() {
     <div className={styles.container}>
       <fieldset className={styles.box}>
         <legend className={styles.most}>
-          Most viewed{process.env.NEXT_PUBLIC_API_URL}
+          Most viewed{process.env.API_URL}
         </legend>
         <div className={styles.rowItem}>
           {data.map((item, index) => (
