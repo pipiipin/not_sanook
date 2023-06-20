@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+require('dotenv').config()
+module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -11,8 +12,6 @@ const nextConfig = {
     ],
   },
   env: {
-    URL: 'https://not-sanook-fj2yjz7he-pipiipin.vercel.app/contents',
+    API_URL: process.env.API_URL,
   },
 }
-
-module.exports = nextConfig
