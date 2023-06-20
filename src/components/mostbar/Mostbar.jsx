@@ -4,8 +4,6 @@ import Link from 'next/link'
 import styles from './mostbar.module.css'
 import Image from 'next/image'
 
-const API_URL = process.env.API_URL
-
 export default function Mostbar() {
   const [data, setData] = useState([])
 
@@ -15,8 +13,7 @@ export default function Mostbar() {
 
   const fetchData = async () => {
     try {
-      let url = API_URL
-      url += `?_sort=views&_order=desc&_limit=5`
+      let url = process.env.API_URL + `?_sort=views&_order=desc&_limit=5`
       const response = await fetch(url)
       const json = await response.json()
       setData(json)
