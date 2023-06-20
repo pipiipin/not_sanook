@@ -20,7 +20,7 @@ export default function Home() {
         <Image src={arrow} width={25} height={25} alt="Arrow right icon" />
       </div>
       <div className="flex w-full justify-between p-6">
-        <div className="w-4/12 grid grid-flow-row gap-y-3 border-t-4 border-t-red-500 px-4 py-8 text-center shadow-2xl">
+        <div className="grid w-4/12 grid-flow-row gap-y-3 border-t-4 border-t-red-500 px-4 py-8 text-center shadow-2xl">
           <div className="text-2xl font-bold">ตรวจสลากกินแบ่งรัฐบาล</div>
           <div className="text-base font-bold">งวดวันที่ 1 มิถุนายน 2566</div>
           <div className="text-sm font-normal">รางวัลที่ 1</div>
@@ -42,9 +42,9 @@ export default function Home() {
             </div>
           </div>
           <div className="text-lg font-bold">งวดนี้คุณตรวจสลากฯแล้วรึยัง?</div>
-          <div className="flex justify-between h-10">
-            <div className="border-2 border-gray-300 w-5/12 h-full flex justify-center items-center">
-              <p className="text-xs mr-0.5">1 มิถุนายน 2566</p>
+          <div className="flex h-10 justify-between">
+            <div className="flex h-full w-5/12 items-center justify-center border-2 border-gray-300">
+              <p className="mr-0.5 text-xs">1 มิถุนายน 2566</p>
               <Image
                 src="/down.png"
                 width={20}
@@ -52,14 +52,14 @@ export default function Home() {
                 alt="Arrow down icon"
               />
             </div>
-            <div className="w-5/12 h-full text-xs flex justify-center items-center">
+            <div className="flex h-full w-5/12 items-center justify-center text-xs">
               <input
-                className="border-2 border-gray-300 border-r-transparent w-9/12 h-full pl-2"
+                className="h-full w-9/12 border-2 border-gray-300 border-r-transparent"
                 type="text"
                 placeholder="กรอกเลขสลาก"
               />
               <button
-                className="w-3/12 h-full flex justify-center items-center text-white bg-red-500"
+                className="flex h-full w-3/12 items-center justify-center bg-red-500 text-white"
                 type="submit"
               >
                 <Image
@@ -72,12 +72,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="w-7/12 h-full border-t-4 border-t-purple-500 px-12 py-8 text-center items-center shadow-2xl">
-          <div className="grid grid-flow-row gap-y-3 mb-7">
+        <div className="h-full w-7/12 items-center border-t-4 border-t-purple-500 px-12 py-8 text-center">
+          <div className="mb-7 grid grid-flow-row gap-y-3">
             <div className="text-2xl font-bold"> เช็คดวง </div>
             <div className="text-base font-bold"> เลือกหมวดทำนายดวงชะตา </div>
           </div>
-          <div className="grid grid-rows-3 grid-flow-col justify-between gap-y-7">
+          <div className="grid grid-flow-col grid-rows-3 justify-between gap-y-7">
             <div className={styles.typeHoro}>
               <Image src="/hr1.png" width={60} height={60} alt="icon" />
               <div className={styles.textHoro}> ดวงรายวัน </div>
