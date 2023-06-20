@@ -13,10 +13,11 @@ export default function Mostbar() {
 
   const fetchData = async () => {
     try {
-      // const { API_URL } = process.env
-      // let url = API_URL + `?_sort=views&_order=desc&_limit=5`
+      const API_URL = process.env.API_URL
+      let url = API_URL + `?_sort=views&_order=desc&_limit=5`
       const response = await fetch(
-        'https://fake-api-fawn.vercel.app/contents?_sort=views&_order=desc&_limit=5',
+        url,
+        // 'https://fake-api-fawn.vercel.app/contents?_sort=views&_order=desc&_limit=5',
       )
       const json = await response.json()
       setData(json)
