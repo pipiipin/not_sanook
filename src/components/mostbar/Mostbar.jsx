@@ -28,7 +28,9 @@ export default function Mostbar() {
   return (
     <div className={styles.container}>
       <fieldset className={styles.box}>
-        <legend className={styles.most}>Most viewed</legend>
+        <legend className={styles.most}>
+          Most viewed{process.env.API_URL}
+        </legend>
         <div className={styles.rowItem}>
           {data.map((item, index) => (
             <Link
