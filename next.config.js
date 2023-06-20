@@ -10,6 +10,9 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    URL: 'https://not-sanook-fj2yjz7he-pipiipin.vercel.app/contents/',
+  },
 }
 
 module.exports = nextConfig

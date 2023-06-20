@@ -13,7 +13,7 @@ export default function Mostbar() {
 
   const fetchData = async () => {
     try {
-      const API_URL = process.env.API_URL
+      const API_URL = process.env.URL
       let url = API_URL + `?_sort=views&_order=desc&_limit=5`
       const response = await fetch(
         url,
