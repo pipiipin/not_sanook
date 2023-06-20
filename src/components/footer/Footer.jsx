@@ -38,17 +38,18 @@ export default async function Footer() {
             <Image src={IN} className={styles.icon} alt="LinkedIn" />
             <Image src={LI} className={styles.icon} alt="Line" />
           </div>
-          <div className={styles.searchBox}>
-            <form noValidate action="" role="search">
-              <input
-                className={styles.input}
-                type="text"
-                placeholder="Email address"
-              />
-              <button className={styles.button} type="submit">
-                รับข่าวสาร
-              </button>
-            </form>
+          <div className="min-h-8 min-w-60 flex">
+            <input
+              className="h-full w-4/6 border-2 border-gray-300 pl-2"
+              type="text"
+              placeholder="Email address"
+            />
+            <button
+              className="h-full w-2/6 bg-red-500 text-xs text-white"
+              type="submit"
+            >
+              รับข่าวสาร
+            </button>
           </div>
         </div>
       </div>
