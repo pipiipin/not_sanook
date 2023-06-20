@@ -15,7 +15,8 @@ export default function Search() {
     const query = event.target.value
     setQuery(query)
     if (query.length) {
-      fetch(`http://localhost:3003/contents/?title_like=${query}&_limit=5`)
+      let url = process.env.API_URL + `?title_like=${query}&_limit=5`
+      fetch(url)
         .then((res) => res.json())
         .then((res) => {
           setResult(res)

@@ -9,8 +9,7 @@ export default function Mostview({ category, channel, id }) {
 
   const fetchData = useCallback(async () => {
     try {
-      let url =
-        'http://localhost:3003/contents/?_limit=3&?_sort=views&_order=desc&'
+      let url = process.env.API_URL + '?_limit=3&_sort=views&_order=desc&'
       if (category) url += `category=${category}&`
       if (channel) url += `channel=${channel}&`
       if (id) url += `id_ne=${id}`

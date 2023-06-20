@@ -17,9 +17,10 @@ export default function Channel() {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3003/contents/?category=${params.category}&channel=${params.channel}`,
-      )
+      let url =
+        process.env.API_URL +
+        `?category=${params.category}&channel=${params.channel}`
+      const response = await fetch(url)
       const data = await response.json()
 
       const random = data.sort(() => Math.random() - 0.5)

@@ -15,9 +15,8 @@ export default function Review() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3003/contents/?category=review&_limit=5`,
-      )
+      let url = process.env.API_URL + `?category=review&_limit=5`
+      const response = await fetch(url)
       const json = await response.json()
 
       const firstCategory = json[0].category

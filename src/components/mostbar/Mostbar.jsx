@@ -13,11 +13,8 @@ export default function Mostbar() {
 
   const fetchData = async () => {
     try {
-      let url = `${process.env.API_URL}?_sort=views&_order=desc&_limit=5`
-      const response = await fetch(
-        url,
-        // 'https://fake-api-fawn.vercel.app/contents?_sort=views&_order=desc&_limit=5',
-      )
+      let url = process.env.API_URL + `?_sort=views&_order=desc&_limit=5`
+      const response = await fetch(url)
       const json = await response.json()
       setData(json)
     } catch (error) {
@@ -28,9 +25,7 @@ export default function Mostbar() {
   return (
     <div className={styles.container}>
       <fieldset className={styles.box}>
-        <legend className={styles.most}>
-          Most viewed{process.env.API_URL}
-        </legend>
+        <legend className={styles.most}>Most viewed</legend>
         <div className={styles.rowItem}>
           {data.map((item, index) => (
             <Link

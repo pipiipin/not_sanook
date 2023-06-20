@@ -18,8 +18,9 @@ export default function Archive() {
 
   const fetchData = async (filter1) => {
     try {
-      let url = `http://localhost:3003/contents/?category=${category}&channel=${channels}&_order=desc`
-
+      let url =
+        process.env.API_URL +
+        `?category=${category}&channel=${channels}&_order=desc`
       if (filter1) url += `&_sort=${filter1}`
 
       const response = await fetch(url)

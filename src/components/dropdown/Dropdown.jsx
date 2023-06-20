@@ -12,7 +12,8 @@ export default function Dropdowm() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:3003/contents/`)
+      let url = process.env.API_URL
+      const response = await fetch(url)
       const data = await response.json()
       setData(getCategoryAndChannel(data))
     } catch (error) {

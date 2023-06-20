@@ -11,8 +11,6 @@ import Mostview from '@/components/mostview/Mostview'
 import Relate from '@/components/relate/Relate'
 import { useParams } from 'next/navigation'
 
-const API_URL = process.env.API_URL
-
 export default function Detail() {
   const [data, setData] = useState([])
   const params = useParams()
@@ -20,8 +18,7 @@ export default function Detail() {
 
   const fetchData = useCallback(async () => {
     try {
-      let url = API_URL
-      if (id) url += `${id}`
+      let url = process.env.API_URL + `/${id}`
       const response = await fetch(url)
       const data = await response.json()
       setData(data)
@@ -84,7 +81,7 @@ export default function Detail() {
           style={{ width: '100%', height: 'auto' }}
         />
         <p className={styles.textD}>{data.body}</p>
-        <Relate channel={data.channel} category={data.category} id={data.id} />
+        <Relate category={data.category} channel={data.channel} id={data.id} />
       </div>
       <div className={styles.boxRight}>
         <Mostview category={data.category} id={data.id} />

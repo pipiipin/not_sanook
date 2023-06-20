@@ -19,8 +19,7 @@ export default function Archive() {
 
   const fetchData = async (filter, filter1) => {
     try {
-      let url = `http://localhost:3003/contents/?category=${category}&_order=desc`
-
+      let url = process.env.API_URL + `?category=${category}&_order=desc`
       if (filter !== 'all news') {
         url += `&channel=${filter}`
       }
@@ -28,9 +27,8 @@ export default function Archive() {
 
       const response = await fetch(url)
       const data = await response.json()
-      const response1 = await fetch(
-        `http://localhost:3003/contents/?category=${category}`,
-      )
+      let url1 = process.env.API_URL + `?category=${category}`
+      const response1 = await fetch(url1)
       const data1 = await response1.json()
 
       setChannel(getChannel(data1))

@@ -19,9 +19,8 @@ export default function Category() {
 
   const fetchData = useCallback(async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3003/contents/?category=${category}`,
-      )
+      let url = process.env.API_URL + `?category=${category}`
+      const response = await fetch(url)
       const data = await response.json()
 
       const random = data.sort(() => Math.random() - 0.5)
